@@ -1,0 +1,196 @@
+<phone:PhoneApplicationPage 
+    x:Class="WPAppStudio.View.info_Info"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ctl="clr-namespace:WPAppStudio.Controls"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:mytoolkit="clr-namespace:MyToolkit.Controls;assembly=MyToolkit.Extended"
+	xmlns:mytoolkitpaging="clr-namespace:MyToolkit.Paging;assembly=MyToolkit.Extended"
+	xmlns:helpers="clr-namespace:WPAppStudio.Helpers"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource CustomApplicationTextBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+	DataContext="{Binding Path=info_InfoViewModel, Source={StaticResource ViewModelLocator}}">
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <phone:PhoneApplicationPage.Resources>
+        
+		<mytoolkitpaging:BindableApplicationBar x:Key="Panoramainfo_Info0AppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource CustomApplicationAppBarBackgroundBrush}" Opacity="0.99" ForegroundColor="White">
+			<mytoolkitpaging:BindableApplicationBarIconButton x:Name="Panoramainfo_Info0SetLockScreenBtn" IconUri="/Images/Icons/Dark/SetLockScreen.png" Text="{Binding Path=LocalizedResources.SetLockScreen, Source={StaticResource LocalizedStrings}}" Command="{Binding SetLockScreenCommand}"/>
+	
+		</mytoolkitpaging:BindableApplicationBar>	
+        
+		<mytoolkitpaging:BindableApplicationBar x:Key="Panoramainfo_Info3AppBar" IsVisible="True" IsMenuEnabled="True" Mode="Minimized" BackgroundColor="{StaticResource CustomApplicationAppBarBackgroundBrush}" Opacity="0.99" ForegroundColor="White">
+			<mytoolkitpaging:BindableApplicationBarIconButton x:Name="Panoramainfo_Info3RefreshBtn" IconUri="/Images/Icons/Dark/Refresh.png" Text="{Binding Path=LocalizedResources.Refresh, Source={StaticResource LocalizedStrings}}" Command="{Binding RefreshPhotoAlbum_NewsListControlCollection}"/>
+	
+		</mytoolkitpaging:BindableApplicationBar>	
+        <ctl:MenuData x:Key="SponsorsMenuControlData">
+            <ctl:MenuItemData Title="Apps for Cash!" TargetUrl="http://www.mstechaffiliate.com/members/markjradacz" Image="/Images/Item-bfe329d4-279f-4133-b0e4-fddd546c3853.jpeg"/>
+            <ctl:MenuItemData Title="Microsoft" TargetUrl="http://www.microsoft.com/en-us/default.aspx" Image="/Images/Item-0174369c-9888-4722-9f20-0cfc3ff2c24a.png"/>
+            <ctl:MenuItemData Title="Telerik" TargetUrl="http://www.telerik.com/" Image="/Images/Item-8d1c6944-a7b9-48eb-bb4f-0cac3197f5ea.jpeg"/>
+            <ctl:MenuItemData Title="ComponentOne" TargetUrl="http://www.componentone.com/" Image="/Images/Item-816f343a-46eb-4a73-9a0f-c355689071c9.png"/>
+            <ctl:MenuItemData Title="Pluralsight" TargetUrl="http://pluralsight.com/training" Image="/Images/Item-2867e94a-7a07-4131-8a02-180aa4892598.jpeg"/>
+            <ctl:MenuItemData Title="Incepture" TargetUrl="http://www.incepture.com/" Image="/Images/Item-c8ef9af1-90bc-4ad6-91be-b4dc1ab1dff8.jpeg"/>
+       
+        </ctl:MenuData>
+    </phone:PhoneApplicationPage.Resources>
+    <Grid x:Name="LayoutRoot">
+        <phone:Panorama x:Name="Panoramainfo_Info" Foreground="{StaticResource CustomApplicationTextBrush}" Background="{StaticResource CustomApplicationBackgroundImage}" SelectionChanged="panoramainfo_Info_SelectionChanged">
+		    <phone:Panorama.Title>
+				<StackPanel Orientation="Horizontal" Margin="0,15,0,0">
+					<Image Height="85" Width="85" Source="..\Images\Logo-948b849b-5fc1-4b78-b786-371edeca2d6c.png" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="5,0,10,5" RenderTransformOrigin="0.5,0.5" />
+					<TextBlock FontSize="92" Text="MDUGJAX" FontFamily="Segoe WP Light" Foreground="{StaticResource CustomTitleApplicationTextBrush}" VerticalAlignment="Stretch"/>
+                </StackPanel>
+            </phone:Panorama.Title>
+			<phone:PanoramaItem x:Name="Panoramainfo_Info0" Margin="0,0,0,25">
+				<phone:PanoramaItem.Header>
+					<StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+						<TextBlock Text="info" Foreground="{StaticResource CustomApplicationTextBrush}"/>
+					</StackPanel>
+				</phone:PanoramaItem.Header>
+                    <ScrollViewer Margin="15,0">
+						<mytoolkit:FixedHtmlTextBlock 
+							FontSize="24" 
+							Foreground="{StaticResource CustomApplicationTextBrush}" 
+							Html="{Binding Currentinfo_InfoHtmlControl}"/>
+					</ScrollViewer>
+            </phone:PanoramaItem>
+			<phone:PanoramaItem x:Name="Panoramainfo_Info1" >
+				<phone:PanoramaItem.Header>
+					<StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+						<TextBlock Text="links" Foreground="{StaticResource CustomApplicationTextBrush}"/>
+					</StackPanel>
+				</phone:PanoramaItem.Header>
+			<Grid>
+				<ctl:LongListSelector x:Name="Links_ListListControl" 
+					ItemsSource="{Binding Links_ListListControlCollection}"
+					SelectedItem="{Binding Selectedlinks_ListListControlCollection, Mode=TwoWay}"
+					PagingEnabled="False"
+					RefreshCommand="{Binding Refreshlinks_ListListControlCollection}">
+                    <ctl:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+							<Grid Margin="20" toolkit:TiltEffect.IsTiltEnabled="True">
+								<Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+								<Image Source="{Binding Image, TargetNullValue={StaticResource DefaultNoImageValue}}" Stretch="UniformToFill" Grid.Row="0" MaxHeight="200"/>
+								<Border Grid.Row="1" VerticalAlignment="Stretch" Background="Black" Opacity="0.7"/>
+								<StackPanel Grid.Row="1" Margin="10,5" VerticalAlignment="Bottom">
+								<TextBlock FontSize="32" Foreground="{StaticResource CustomApplicationTextBrush}" 
+											Text="{Binding Title, Converter={StaticResource SanitizeString}}" />
+								<TextBlock TextWrapping="Wrap" FontSize="18" Foreground="{StaticResource CustomApplicationTextBrush}"
+										TextTrimming="WordEllipsis" Text="{Binding Subtitle, Converter={StaticResource SanitizeString}}" Height="75"/>
+								</StackPanel>
+							</Grid>
+                        </DataTemplate>
+                    </ctl:LongListSelector.ItemTemplate>
+                </ctl:LongListSelector>
+			</Grid>
+            </phone:PanoramaItem>
+			<phone:PanoramaItem x:Name="Panoramainfo_Info2" >
+				<phone:PanoramaItem.Header>
+					<StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+						<TextBlock Text="upcoming" Foreground="{StaticResource CustomApplicationTextBrush}"/>
+					</StackPanel>
+				</phone:PanoramaItem.Header>
+			<Grid>
+				<ctl:LongListSelector x:Name="Upcoming_ListListControl" 
+					ItemsSource="{Binding Upcoming_ListListControlCollection}"
+					SelectedItem="{Binding Selectedupcoming_ListListControlCollection, Mode=TwoWay}"
+					PagingEnabled="False"
+					RefreshCommand="{Binding Refreshupcoming_ListListControlCollection}">
+                    <ctl:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+							<Grid Margin="5" toolkit:TiltEffect.IsTiltEnabled="True">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<TextBlock FontSize="32" Foreground="{StaticResource CustomApplicationTextBrush}" 
+											Text="{Binding Subtitle, Converter={StaticResource SanitizeString}}" Margin="10,0" Grid.Row="0"/>
+								<TextBlock TextWrapping="Wrap" FontSize="18" Foreground="{StaticResource CustomApplicationTextBrush}"
+										TextTrimming="WordEllipsis" Text="{Binding Title, Converter={StaticResource SanitizeString}}" MaxHeight="75" Margin="10,0" Grid.Row="1"/>
+							</Grid>
+                        </DataTemplate>
+                    </ctl:LongListSelector.ItemTemplate>
+                </ctl:LongListSelector>
+			</Grid>
+            </phone:PanoramaItem>
+			<phone:PanoramaItem x:Name="Panoramainfo_Info3" Margin="0,0,0,25">
+				<phone:PanoramaItem.Header>
+					<StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+						<TextBlock Text="Photo album" Foreground="{StaticResource CustomApplicationTextBrush}"/>
+					</StackPanel>
+				</phone:PanoramaItem.Header>
+			<Grid>
+				<ProgressBar IsIndeterminate="True" Visibility="{Binding LoadingPhotoAlbum_NewsListControlCollection, Converter={StaticResource VisibilityConverter}}" />
+				<ctl:LongListSelector x:Name="PhotoAlbum_NewsListControl" 
+					ItemsSource="{Binding PhotoAlbum_NewsListControlCollection}" 
+					LayoutMode="Grid"   
+					GridCellSize="135,135"
+					SelectedItem="{Binding SelectedPhotoAlbum_NewsListControlCollection, Mode=TwoWay}"
+					RefreshCommand="{Binding RefreshPhotoAlbum_NewsListControlCollection}">
+					<ctl:LongListSelector.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Height="135" Width="135">
+								<Image Source="{Binding ImageUrl, TargetNullValue={StaticResource DefaultNoImageValue}}" Width="130" Height="130" Stretch="UniformToFill">
+								</Image>				
+							</StackPanel>
+						</DataTemplate>
+					</ctl:LongListSelector.ItemTemplate>
+				</ctl:LongListSelector>
+			</Grid>
+            </phone:PanoramaItem>
+			<phone:PanoramaItem x:Name="Panoramainfo_Info4" >
+				<phone:PanoramaItem.Header>
+					<StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+						<TextBlock Text="our support" Foreground="{StaticResource CustomApplicationTextBrush}"/>
+					</StackPanel>
+				</phone:PanoramaItem.Header>
+				<ListBox x:Name="SponsorsMenuControl" 
+					ItemsSource="{StaticResource SponsorsMenuControlData}"
+					SelectedItem="{Binding SelectedsponsorsMenuControl, Mode=TwoWay}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+							<VirtualizingStackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+						<Grid Margin="5" toolkit:TiltEffect.IsTiltEnabled="True">
+								<TextBlock Margin="10,0" FontSize="32" Foreground="{StaticResource CustomApplicationTextBrush}" 
+											VerticalAlignment="Center" Text="{Binding Title}" />
+						</Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PanoramaItem>
+        </phone:Panorama>
+    </Grid>
+	
+</phone:PhoneApplicationPage>
